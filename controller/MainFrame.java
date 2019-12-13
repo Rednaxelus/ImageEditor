@@ -63,7 +63,7 @@ public class MainFrame extends JFrame {
     }
 
     private JPanel imageDisplay() {
-        SwingImageDisplay sid = new SwingImageDisplay();
+        SwingImageDisplay sid = new SwingImageDisplay(600, 400);
         this.imageDisplay = sid;
         return sid;
     }

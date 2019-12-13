@@ -9,7 +9,14 @@ import model.Image;
 
 public class SwingImageDisplay  extends JPanel implements ImageDisplay {
     private Image currentImage;
-    
+    private int width;
+    private int height;
+
+    public SwingImageDisplay(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
     @Override
     public Image current() {
         return currentImage;
@@ -23,7 +30,8 @@ public class SwingImageDisplay  extends JPanel implements ImageDisplay {
     
     @Override
     public void paint(Graphics g) {
-            g.drawImage(imageOf(currentImage), 0, 0, null);
+         super.paintComponent(g);
+            g.drawImage(imageOf(currentImage).getScaledInstance(-1, height, BufferedImage.SCALE_DEFAULT), 0, 0, null);
     }
 
     private BufferedImage imageOf(Image image) {
