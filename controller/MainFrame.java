@@ -39,12 +39,7 @@ public class MainFrame extends JFrame {
     }
 
     private ActionListener prevImage() {
-        return new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                imageDisplay.show(imageDisplay.current().prev());
-            }
-        };
+        return actionPerformed -> imageDisplay.show(imageDisplay.current().prev());
     }
 
     private Component nextButton() {
@@ -54,12 +49,7 @@ public class MainFrame extends JFrame {
     }
 
     private ActionListener nextImage() {
-        return new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                imageDisplay.show(imageDisplay.current().next());
-            }
-        };
+        return actionPerformed -> imageDisplay.show(imageDisplay.current().next());
     }
 
     private JPanel imageDisplay() {

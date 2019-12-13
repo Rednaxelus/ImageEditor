@@ -12,7 +12,7 @@ public class FileImageLoader implements ImageLoader {
 
     private FileFilter imageTypes() {
         return new FileFilter() {
-            
+
             @Override
             public boolean accept(File pathname) {
                 String filename = pathname.getName();
