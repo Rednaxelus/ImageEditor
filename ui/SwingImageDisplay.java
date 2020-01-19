@@ -1,11 +1,12 @@
 package ui;
 
-import java.awt.Graphics;
+import model.Image;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.swing.JPanel;
-import model.Image;
 
 public class SwingImageDisplay  extends JPanel implements ImageDisplay {
     private Image currentImage;
@@ -30,8 +31,13 @@ public class SwingImageDisplay  extends JPanel implements ImageDisplay {
     
     @Override
     public void paint(Graphics g) {
-         super.paintComponent(g);
-            g.drawImage(imageOf(currentImage).getScaledInstance(-1, height, BufferedImage.SCALE_DEFAULT), 0, 0, null);
+        super.paintComponent(g);
+
+        java.awt.Image scaledImage = imageOf(currentImage).getScaledInstance(-1, height, BufferedImage.SCALE_DEFAULT);
+
+        int x = (this.getWidth() - scaledImage.getWidth(null)) / 2;
+
+        g.drawImage(scaledImage, x, 0, null);
     }
 
     private BufferedImage imageOf(Image image) {
@@ -41,5 +47,5 @@ public class SwingImageDisplay  extends JPanel implements ImageDisplay {
             e.printStackTrace();
             return null;
         }
-    };
+    }
 }

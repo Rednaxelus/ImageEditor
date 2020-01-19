@@ -1,14 +1,16 @@
 package controller;
 
-import java.io.File;
 import model.Image;
 import persistence.FileImageLoader;
+
+import java.io.File;
 
 public class Main {
 
     public static void main(String[] args) {
-        File file = new File("C:\\ALLES\\Desktopbilder");
-        System.out.println("RUTA A CARPETA CON FICHEROS JPG");
+        String pathname = "INPUT";
+        File file = new File(pathname);
+        System.out.println("RUTA A CARPETA CON FICHEROS: " + pathname);
         FileImageLoader imageLoader = new FileImageLoader(file);
         Image image = imageLoader.load();
         MainFrame mainFrame = new MainFrame();

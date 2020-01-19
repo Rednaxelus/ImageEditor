@@ -1,15 +1,11 @@
 package controller;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.WindowConstants;
 import ui.ImageDisplay;
 import ui.SwingImageDisplay;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class MainFrame extends JFrame {
 
@@ -53,7 +49,7 @@ public class MainFrame extends JFrame {
     }
 
     private JPanel imageDisplay() {
-        SwingImageDisplay sid = new SwingImageDisplay(600, 400);
+        SwingImageDisplay sid = new SwingImageDisplay(1366, 700);
         this.imageDisplay = sid;
         return sid;
     }
